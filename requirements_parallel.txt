@@ -1,0 +1,24 @@
+# Requirements for compass_pro_parallel.py (parallel COMPASS-PRO)
+# Author: Dibyendu Mondal
+#
+# Same pinned qiskit stack as compass_pro.py (legacy V1 primitives are
+# required by qiskit_algorithms' VQE / EvolvedOperatorAnsatz as used here;
+# newer qiskit / qiskit-aer majors will break it). Tested on Python 3.10.
+numpy==1.26.4
+scipy==1.12.0
+qiskit==0.45.3
+qiskit-aer==0.13.3
+qiskit-algorithms==0.2.2
+qiskit-nature==0.7.2
+pyscf==2.14.0
+
+# Parallel execution of the independent VQE jobs (tested with 1.6.0; its
+# dependency cloudpickle is installed automatically).
+joblib>=1.3
+
+# Optional: only needed to regenerate the flowchart (generate_flowchart.py).
+# matplotlib>=3.5
+#
+# For bit-for-bit reproducible runs / comparisons with compass_pro.py, set
+#   OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+# (PySCF's last digits otherwise vary slightly between multithreaded runs).

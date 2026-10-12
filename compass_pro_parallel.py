@@ -27,37 +27,7 @@ each candidate excitation operator actually recovers:
       as their own one-operator batches.
   6.  Adaptively grow the final ansatz (ADAPT-VQE style) from those batches.
 
-What is different from ``compass_pro.py``?
-------------------------------------------
-Only the *scheduling* of the work. The algorithm, thresholds, loop order,
-tie-breaking rules and printed output are unchanged, so the numbers match the
-serial script.
 
-  * Every expensive operation in COMPASS-PRO is a small, independent VQE:
-      - step 5  : one 1-parameter VQE per candidate T2,
-      - step 8  : one 2-parameter VQE per (T2, S) pair,
-      - step 11 : one VQE per candidate batch, in every growth round.
-    Within each of those steps the VQEs do not depend on one another, so they
-    are farmed out to worker processes with joblib.
-  * Everything that *decides* something (thresholds, sorting, de-duplication,
-    picking the best batch, convergence test) stays serial and runs in the
-    original order, on the collected results.
-  * Because each VQE is deterministic (exact statevector Estimator +
-    L-BFGS-B), a worker returns bit-for-bit what the serial loop would, no
-    matter which process computed it.
-  * Duplicate (T2, S) VQEs (the serial script recomputes a pair whenever a T2
-    contains the active orbital more than once) are computed once and reused.
-  * Only the strictly-sequential VQE at the end of each growth round (it needs
-    the winner of that round) cannot be parallelised.
-
-Molecule: linear BeH2 (Be at the origin, H at +-3.0 Angstrom along z),
-STO-3G, frozen core, Jordan-Wigner mapping.
-
-Usage
------
-    python compass_pro_parallel.py              # use all CPU cores
-    COMPASS_N_JOBS=4 python compass_pro_parallel.py
-    COMPASS_N_JOBS=1 python compass_pro_parallel.py   # serial (debugging)
 """
 
 import os

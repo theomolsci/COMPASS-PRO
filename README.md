@@ -42,3 +42,20 @@ Selection by energy stabilization (rather than by gradient) steers the
 optimization along the steepest "burrowing" direction, which lets the method
 bypass local traps and reach the ground state even in strongly correlated
 regions.
+
+## Citation
+
+@article{10.1063/5.0307670,
+    author = {Mondal, Dibyendu and Mukherjee, Debaarjun and Maitra, Rahul},
+    title = {Operator commutativity screening and progressive operator block reordering toward many-body inspired quantum state preparation},
+    journal = {The Journal of Chemical Physics},
+    volume = {164},
+    number = {7},
+    pages = {074113},
+    year = {2026},
+    month = {02},
+    issn = {0021-9606},
+    doi = {10.1063/5.0307670},
+    url = {https://doi.org/10.1063/5.0307670},
+    eprint = {https://pubs.aip.org/aip/jcp/article-pdf/doi/10.1063/5.0307670/20912143/074113_1_5.0307670.pdf},
+}

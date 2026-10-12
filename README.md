@@ -44,7 +44,7 @@ bypass local traps and reach the ground state even in strongly correlated
 regions.
 
 ## Citation
-
+```bibtex
 @article{10.1063/5.0307670,
     author = {Mondal, Dibyendu and Mukherjee, Debaarjun and Maitra, Rahul},
     title = {Operator commutativity screening and progressive operator block reordering toward many-body inspired quantum state preparation},
@@ -59,3 +59,4 @@ regions.
     url = {https://doi.org/10.1063/5.0307670},
     eprint = {https://pubs.aip.org/aip/jcp/article-pdf/doi/10.1063/5.0307670/20912143/074113_1_5.0307670.pdf},
 }
+```
